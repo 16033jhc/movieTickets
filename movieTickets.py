@@ -1,17 +1,17 @@
 # Imports
 
 # Functions
-#question = "What is your name?\n"
-#def not_blank(question):
-#    valid = False
-#
-#    while not valid:
-#        response = input(question)
-#
-#        if response != "":
-#            return response
-#        else:
-#            print("Sorry - this can't be blank.")
+
+def not_blank(question):
+    valid = False
+
+    while not valid:
+        response = input(question)
+
+        if response != "":
+            return response
+        else:
+            print("Sorry - this can't be blank.")
 
 ###### Main Routine ######
 
@@ -21,20 +21,18 @@
 
 # Loop for ticket details
 
-    # Name (can't be blank)
-        while True:
-            name = input("What is your name?\nName: ")
+# Name (can't be blank)
+name = not_blank("Name: ")
 
+# Age (between 12 and 130)
 
-    # Age (between 12 and 130)
+# Calculate ticket price
 
-    # Calculate ticket price
+# Loop for snacks
 
-    # Loop for snacks
+# Calculate snack price
 
-    # Calculate snack price
-
-    # Payment Method (and add surcharge for credit card)
+# Payment Method (and add surcharge for credit card)
 
 # Math for total price
 
