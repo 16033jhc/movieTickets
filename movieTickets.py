@@ -2,7 +2,7 @@
 
 # Functions
 
-def not_blank(question, error_message):
+def not_blank(question):
     valid = False
 
     while not valid:
@@ -11,7 +11,7 @@ def not_blank(question, error_message):
         if response != "":
             return response
         else:
-            print(error_message)
+            print("Sorry - this can't be blank.")
 
 ###### Main Routine ######
 
@@ -22,9 +22,7 @@ def not_blank(question, error_message):
 # Loop for ticket details
 
 # Name (can't be blank)
-name = not_blank("Name: ",
-                "Sorry - this can't be blank, "
-                "please enter your name.")
+name = not_blank("Name: ")
 
 # Age (between 12 and 130)
 
