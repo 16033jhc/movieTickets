@@ -1,7 +1,7 @@
 # Imports
 
 # Functions
-
+# Checks ticket name is not blank, if blank function shows error
 def not_blank(question):
     valid = False
 
