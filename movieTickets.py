@@ -19,16 +19,15 @@ def not_blank(question):
 
 # Offer first time users a walkthrough of the program
 
-# Loop for ticket details
+# Loop for ticket details and check name isn't blank
 name = ""
 count = 0 # change to 150 on compeletion of project
 MAX_TICKETS = 5
 
 while name != "xxx" and count < MAX_TICKETS:
-    name = input("Name: ")
+    name = not_blank("Name: ")
     count += 1
-# Name (can't be blank)
-#name = not_blank("Name: ")
+
 
 # Age (between 12 and 130)
 
