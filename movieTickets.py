@@ -28,7 +28,6 @@ while name != "xxx" and count < MAX_TICKETS:
     name = not_blank("Name: ")
     count += 1
 
-
 # Age (between 12 and 130)
 
 # Calculate ticket price
