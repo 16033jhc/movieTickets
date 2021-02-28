@@ -19,15 +19,27 @@ def not_blank(question):
 
 # Offer first time users a walkthrough of the program
 
-# Loop for ticket details and check name isn't blank
+## Start of loop
+# Initialise loop so it runs at least once
 name = ""
 count = 0 # change to 150 on compeletion of project
 MAX_TICKETS = 5
 
 while name != "xxx" and count < MAX_TICKETS:
+    print("You have {} seats left."
+        .format(MAX_TICKETS - count))
+    
+    #Get details
     name = not_blank("Name: ")
     count += 1
+    print()
 
+if count == MAX_TICKETS:
+    print("You have sold all the available tickets.")
+else:
+    print("You have sold {} tickets. \n"
+        "There are {} places still available"
+        .format(count, MAX_TICKETS - count))
 # Age (between 12 and 130)
 
 # Calculate ticket price
