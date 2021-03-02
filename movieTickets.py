@@ -13,6 +13,25 @@ def not_blank(question):
         else:
             print("Sorry - this can't be blank.")
 
+def int_check(question, low_num, high_num):
+    
+    error = "Please enter a whole number between {} " \
+            "and {}".format(low_num, high_num)
+
+    valid = False
+    while not valid:
+
+        try:
+            response = int(input(question))
+
+            if low_num <= response <= high_num:
+                print(error)
+            else:
+                return response
+
+        except ValueError:
+            print(error)
+
 ###### Main Routine ######
 
 # Dictionaries / Lists for data storage
@@ -26,10 +45,14 @@ count = 0 # change to 150 on compeletion of project
 MAX_TICKETS = 5
 
 while name != "xxx" and count < MAX_TICKETS:
-    print("You have {} seats left."
-        .format(MAX_TICKETS - count))
-    
-    #Get details
+    # Tells the user how many seats are left
+    if count < 4:
+        print("You have {} seats left."
+            .format(MAX_TICKETS - count))
+    # Warns user that only one seat is left
+    else:
+        print("##### There is ONE seat left! #####")
+    #Get details, check name isn't blank
     name = not_blank("Name: ")
     count += 1
     print()
@@ -40,8 +63,9 @@ else:
     print("You have sold {} tickets. \n"
         "There are {} places still available"
         .format(count, MAX_TICKETS - count))
-# Age (between 12 and 130)
 
+# Age (between 12 and 130)
+age = int_check("Age: ", 12, 130)
 # Calculate ticket price
 
 # Loop for snacks
