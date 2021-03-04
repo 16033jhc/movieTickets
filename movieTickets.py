@@ -13,10 +13,9 @@ def not_blank(question):
         else:
             print("Sorry - this can't be blank.")
 
-def int_check(question, low_num, high_num):
+def int_check(question):
     
-    error = "Please enter a whole number between {} " \
-            "and {}".format(low_num, high_num)
+    error = "Please enter a whole number that is more than 0."
 
     valid = False
     while not valid:
@@ -24,7 +23,7 @@ def int_check(question, low_num, high_num):
         try:
             response = int(input(question))
 
-            if low_num <= response <= high_num:
+            if response <= 0:
                 print(error)
             else:
                 return response
@@ -52,11 +51,26 @@ while name != "xxx" and count < MAX_TICKETS:
     # Warns user that only one seat is left
     else:
         print("##### There is ONE seat left! #####")
-    #Get details, check name isn't blank
+    
+    #Get details
+    
+    #Get name (can't be blank)
     name = not_blank("Name: ")
-    count += 1
-    print()
+    if name == "xxx":
+        break
 
+    # Age (between 12 and 130)
+    age = int_check("Age: ")
+    
+    if age < 12:
+        print("You are too young for this movie. \n"
+            "Go do homework, kid.")
+        continue
+    elif age > 130:
+        print("Are you sure? This seems like a mistake.")
+        continue
+
+    count += 1
 if count == MAX_TICKETS:
     print("You have sold all the available tickets.")
 else:
@@ -64,8 +78,6 @@ else:
         "There are {} places still available"
         .format(count, MAX_TICKETS - count))
 
-# Age (between 12 and 130)
-age = int_check("Age: ", 12, 130)
 # Calculate ticket price
 
 # Loop for snacks
