@@ -40,14 +40,15 @@ def int_check(question):
 ## Start of loop
 # Initialise loop so it runs at least once
 name = ""
-count = 0 # change to 150 on compeletion of project
-MAX_TICKETS = 5
+ticketCount = 0
+ticketSales = 0
+MAX_TICKETS = 5 # change to 150 on compeletion of project
 
-while name != "xxx" and count < MAX_TICKETS:
+while name != "xxx" and ticketCount < MAX_TICKETS:
     # Tells the user how many seats are left
-    if count < 4:
+    if ticketCount < MAX_TICKETS - 1:
         print("You have {} seats left."
-            .format(MAX_TICKETS - count))
+            .format(MAX_TICKETS - ticketCount))
     # Warns user that only one seat is left
     else:
         print("##### There is ONE seat left! #####")
@@ -63,20 +64,43 @@ while name != "xxx" and count < MAX_TICKETS:
     age = int_check("Age: ")
     
     if age < 12:
-        print("You are too young for this movie. \n"
-            "Go do homework, kid.")
+        print("You are too young for this movie.")
         continue
     elif age > 130:
         print("Are you sure? This seems like a mistake.")
         continue
 
-    count += 1
-if count == MAX_TICKETS:
+    # Calculate ticket sales
+
+    if age < 65:
+        ticketPrice = 10.50
+    elif age < 16:
+        ticketPrice = 7.50
+    else:
+        ticketPrice = 6.50
+
+    ticketCount += 1
+    ticketSales += ticketPrice
+    print("Price: ${:.2f}".format(ticketPrice))
+    #Ticket Profit
+    ticketProfit = ticketSales - (5 * ticketCount)
+    print("Profit from Tickets: ${:.2f}.".format(ticketProfit))
+    
+    # Tell user if there are still unsold tickets
+    if ticketCount == MAX_TICKETS:
+        print("You have sold all the available tickets.")
+    else:
+        print("You have sold {} tickets.    \n"
+            " There are {} places still available."
+                .format(ticketCount, MAX_TICKETS - ticketCount))
+
+#Allows up to the max ticket num to be sold
+if ticketCount == MAX_TICKETS:
     print("You have sold all the available tickets.")
 else:
     print("You have sold {} tickets. \n"
         "There are {} places still available"
-        .format(count, MAX_TICKETS - count))
+        .format(ticketCount, MAX_TICKETS - ticketCount))
 
 # Calculate ticket price
 
